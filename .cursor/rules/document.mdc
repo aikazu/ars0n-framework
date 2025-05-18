@@ -1,0 +1,313 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Core Documentation Files
+
+### README.md
+
+- **Purpose**: Serve as the entry point and overview for the project
+- **Include**:
+   - Project name and concise description (1-2 sentences)
+   - Problem the project solves
+   - Key features (3-5 bullet points)
+   - Installation instructions
+   - Basic usage examples with code snippets
+   - Technology stack overview
+   - Project structure summary
+   - Links to other documentation files
+   - License information
+   - Contact/contributor information
+- **Style**:
+   - Clear and concise language
+   - Code blocks for all commands and examples
+   - Proper markdown formatting with headings, lists, and emphasis
+   - Screenshots or diagrams if relevant (with alt text)
+- **Constraints**:
+   - Keep under 500 lines
+   - Avoid jargon without explanation
+   - Focus on helping new users get started quickly
+
+### PLANNING.md
+
+- **Purpose**: Define the high-level vision and strategic direction
+- **Include**:
+   - Project vision and goals
+   - Key milestones and timeline
+   - Non-Functional Requirements (NFRs)
+   - Development approach and methodology
+   - Integration points with other systems
+   - References to more detailed documentation
+- **Style**:
+   - Organize with clear headings and subheadings
+   - Include diagrams as links or descriptions
+   - Separate sections for different concerns
+- **Constraints**:
+   - Focus on "what" and "why", leave implementation details to specialized docs
+   - Keep updated when strategic decisions change
+
+### TASK.md
+
+- **Purpose**: Track current tasks, backlog items, and progress
+- **Include**:
+   - Active tasks table with columns:
+       - Task ID (unique identifier like T001)
+       - Description (clear, actionable statement)
+       - Priority (High/Medium/Low)
+       - Complexity (Simple/Medium/Complex)
+       - Status (To Do/In Progress/Done)
+       - Dependencies (other task IDs this depends on)
+       - Associated files or modules
+       - Expected outcome or acceptance criteria
+       - Progress indicator (percentage)
+       - Notes (blockers, challenges, discoveries)
+   - Backlog tasks table
+   - Completed tasks section with completion dates
+   - Current sprint or milestone information
+   - Known blockers or impediments
+   - Session boundaries markers
+- **Style**:
+   - Use markdown tables for structured data
+   - Keep task descriptions concise but specific
+   - Include enough detail for independent work
+- **Constraints**:
+   - Update task statuses regularly
+   - Move completed tasks to the completed section
+   - Break large tasks into smaller subtasks
+   - Ensure Task IDs are unique and consistently used
+
+### CHANGELOG.md
+
+- **Purpose**: Document version history and significant changes
+- **Include**:
+   - Version number (semantic versioning: MAJOR.MINOR.PATCH)
+   - Changes categorized as:
+       - Added (new features)
+       - Changed (changes to existing functionality)
+       - Deprecated (features marked for removal)
+       - Removed (features removed in this release)
+       - Fixed (bug fixes)
+       - Security (security vulnerabilities fixed)
+   - Migration instructions for breaking changes
+   - Contributors for each release (optional)
+- **Style**:
+   - Reverse chronological order (newest first)
+   - Link to relevant issues or task IDs
+   - Clear headings for each version
+   - Group changes by type within each version
+- **Constraints**:
+   - Be specific about changes (avoid "various improvements")
+   - Focus on user-impacting changes
+   - Update before tagging a new release
+
+## Specialized Documentation Files
+
+### ARCHITECTURE.md
+
+- **Purpose**: Document system architecture and technical foundations
+- **Include**:
+   - Architectural overview with components and interactions
+   - System diagrams and data flow
+   - Component responsibilities
+   - Design patterns employed
+   - Technical constraints
+   - Architectural decisions and reasoning
+   - Performance considerations
+   - Security architecture
+- **Style**:
+   - Use clear diagrams (as descriptions or links)
+   - Separate sections by component or concern
+   - Include decision tables for major choices
+- **Constraints**:
+   - Update when architectural decisions change
+   - Document trade-offs explicitly
+   - Include unique section IDs for reference
+
+### TECH-STACK.md
+
+- **Purpose**: Define complete technology stack details
+- **Include**:
+   - Languages with version requirements
+   - Frameworks and libraries with versions
+   - Development tools
+   - Build systems
+   - Deployment technologies
+   - Database technologies
+   - Caching systems
+   - Third-party services
+   - Justification for each technology choice
+- **Style**:
+   - Organize by function (e.g., frontend, backend, data)
+   - Include compatibility notes where relevant
+   - Document alternatives considered
+- **Constraints**:
+   - Keep version information updated
+   - Note deprecation warnings
+   - Include links to official documentation
+
+### MIGRATIONS.md
+
+- **Purpose**: Track database or system migration plans
+- **Include**:
+   - Migration ID and description
+   - Current state and target state
+   - Step-by-step migration procedure
+   - Rollback procedure
+   - Verification steps
+   - Estimated downtime
+   - Pre-migration checklist
+   - Post-migration validation
+- **Style**:
+   - Number migrations sequentially
+   - Include SQL scripts or code in fenced blocks
+   - Add warning notices for destructive operations
+- **Constraints**:
+   - One section per migration
+   - Include timestamps for each migration
+   - Document both forward and rollback procedures
+
+### REFACTORING.md
+
+- **Purpose**: Document refactoring initiatives and progress
+- **Include**:
+   - Refactoring goal and motivation
+   - Files/components affected
+   - Before and after architecture
+   - Implementation approach
+   - Progress tracking
+   - Verification strategy
+   - Potential risks
+- **Style**:
+   - Organized by refactoring initiative
+   - Include code snippets showing before/after
+   - Track progress percentages
+- **Constraints**:
+   - Link to related tasks in TASK.md
+   - Document technical debt discovered
+   - Include validation criteria
+
+### TESTING.md
+
+- **Purpose**: Document testing strategy and test cases
+- **Include**:
+   - Testing approach (TDD, BDD, etc.)
+   - Test environments
+   - Test categories (unit, integration, e2e)
+   - Test coverage goals
+   - Test case templates
+   - Mock data strategy
+   - Test automation details
+- **Style**:
+   - Organize by component or feature
+   - Include example test cases
+   - Track coverage metrics
+- **Constraints**:
+   - Update when testing strategy changes
+   - Document test dependencies
+   - Include both happy path and edge cases
+
+### API-SPECS.md
+
+- **Purpose**: Document API endpoints and contracts
+- **Include**:
+   - Base URLs and versioning strategy
+   - Authentication methods
+   - Endpoint paths and HTTP methods
+   - Request parameters and body schema
+   - Response formats and status codes
+   - Rate limiting information
+   - Example requests and responses
+- **Style**:
+   - Organize by resource or domain
+   - Use tables for parameters
+   - Include code blocks for examples
+- **Constraints**:
+   - Maintain backward compatibility notes
+   - Document deprecation timelines
+   - Include validation rules
+
+## Session Management Files
+
+### SESSION.md
+
+- **Purpose**: Track context for current work session
+- **Include**:
+   - Session identifier (numeric counter or descriptive name)
+   - Session goals and focus
+   - Current active task references
+   - Files being modified
+   - Recent decisions and changes
+   - Next steps
+   - Questions and clarifications needed
+- **Style**:
+   - Bulleted lists for quick scanning
+   - Bold key information
+   - Include task IDs for reference
+- **Constraints**:
+   - Create at beginning of each work session
+   - Limit to information needed for current context
+   - Keep concise (under 100 lines)
+
+### STATE.md
+
+- **Purpose**: Capture system state at checkpoints
+- **Include**:
+   - Checkpoint identifier (numeric or descriptive)
+   - Active branches and commits
+   - Current implementation status
+   - Component completion status
+   - Known issues or bugs
+   - Environment configuration
+- **Style**:
+   - Use checkboxes for completion status
+   - Include progress bars where relevant
+   - List files with modification status
+- **Constraints**:
+   - Generate before reaching conversation limits
+   - Include enough detail to resume work effectively
+   - Focus on current implementation state
+
+### DECISIONS.md
+
+- **Purpose**: Log key technical and design decisions
+- **Include**:
+   - Decision ID (D001, D002, etc.)
+   - Decision description
+   - Context and constraints
+   - Alternatives considered
+   - Rationale for chosen solution
+   - Implications and trade-offs
+   - Stakeholders involved
+- **Style**:
+   - Number decisions sequentially
+   - Group by component or feature
+   - Include pros/cons tables
+- **Constraints**:
+   - Keep decisions atomic and focused
+   - Update when decisions are reversed
+   - Link to related decisions
+
+## Subtask Files (For Complex Features)
+
+### SUBTASK-{ID}.md
+
+- **Purpose**: Track isolated component of complex feature
+- **Include**:
+   - Parent task reference
+   - Specific subtask goal
+   - Dependencies on other subtasks
+   - Implementation approach
+   - Progress status
+   - Validation criteria
+   - Files to modify
+   - Precise implementation details
+- **Style**:
+   - Include enough context to work independently
+   - Focused on a single responsibility
+   - Clear steps to completion
+- **Constraints**:
+   - Create for subtasks expected to take more than one session
+   - Include cross-references to other subtasks
+
+   - Must be completable in a single conversation

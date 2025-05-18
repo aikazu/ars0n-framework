@@ -153,4 +153,77 @@ A structured set of specialized markdown documents in the repository provides th
 - Distributed nature may make navigation harder
 - Needs clear organization and cross-references
 
-**Stakeholders**: Development team, users, contributors 
+**Stakeholders**: Development team, users, contributors
+
+## D011: Docker Containerization Approach
+
+**Decision Description**: Implement containerization of the Ars0n Framework using Docker and Docker Compose.
+
+**Context and Constraints**:
+- The Ars0n Framework consists of multiple components (client, server, toolkit, database) that need to work together
+- Installation on different environments has been challenging for users
+- Many of the toolkit's dependencies require specific versions and configurations
+- Environment setup is currently complex and error-prone
+
+**Alternatives Considered**:
+1. **Single Container Approach**: Package the entire application in one container
+   - Pros: Simpler deployment, no inter-container networking
+   - Cons: Violates separation of concerns, harder to maintain, poor scalability
+   
+2. **Multiple Container Approach** (Chosen): Separate containers for each component
+   - Pros: Better separation of concerns, independent scaling, easier maintenance
+   - Cons: More complex networking, additional configuration needed
+   
+3. **Hybrid VM Approach**: Container for web components, VM for scanning tools
+   - Pros: Better isolation for security tools, easier tool installation
+   - Cons: More resource intensive, harder to distribute
+
+**Rationale for Chosen Solution**:
+- The multiple container approach better aligns with microservices architecture principles
+- Facilitates independent updates to components (e.g., updating the React frontend without affecting the toolkit)
+- Provides a consistent environment for each component with appropriate base images
+- MongoDB data can be persisted independently of application code
+- Docker Compose simplifies the orchestration of multiple containers
+
+**Implications and Trade-offs**:
+- Users will need to install Docker and Docker Compose instead of direct installation
+- Some scanning tools may be challenging to containerize correctly
+- Network communication between containers needs careful configuration
+- The toolkit container is larger due to including many security tools
+
+**Stakeholders**: Development team, end users (security researchers)
+
+## D012: Toolkit Containerization Base Image
+
+**Decision Description**: Use Kali Linux as the base image for the toolkit container.
+
+**Context and Constraints**:
+- The toolkit relies on numerous security tools typically available in security-focused distributions
+- Tools need specific versions and configurations to work correctly
+- Many tools are pre-installed in security distributions like Kali Linux
+
+**Alternatives Considered**:
+1. **Ubuntu/Debian Base + Manual Tool Installation**:
+   - Pros: Smaller base image, more control over installed components
+   - Cons: Complex tool installation, potential version conflicts
+   
+2. **Kali Linux Base** (Chosen):
+   - Pros: Pre-installed security tools, designed for security testing
+   - Cons: Larger image size, potential unnecessary components
+   
+3. **Custom Minimal Image**:
+   - Pros: Smallest possible size, only required components
+   - Cons: Extremely time-consuming to build, hard to maintain
+
+**Rationale for Chosen Solution**:
+- Kali Linux already includes many of the required security tools
+- The installation script already targets Kali, making containerization more straightforward
+- Reduces the risk of tool configuration issues
+- Trade-off of larger image size is acceptable for the benefits gained
+
+**Implications and Trade-offs**:
+- Images will be larger than a minimal solution
+- Better compatibility with existing installation scripts
+- May include some unnecessary tools, but simplifies maintenance
+
+**Stakeholders**: Development team, end users (security researchers) 

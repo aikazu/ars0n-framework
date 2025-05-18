@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # MongoDB database
+  mongo:
+    image: mongo:latest
+    container_name: ars0n-mongodb
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - ars0n-network
+    environment:
+      - MONGO_INITDB_DATABASE=ars0n-framework
+
+  # Backend server (Node.js)
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: ars0n-server
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/ars0n-framework
+    ports:
+      - "5000:5000"
+    networks:
+      - ars0n-network
+    volumes:
+      - ./logs:/app/logs
+
+  # Frontend client (React)
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: ars0n-client
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    networks:
+      - ars0n-network
+
+  # Toolkit service (Python)
+  toolkit:
+    build:
+      context: ./toolkit
+      dockerfile: Dockerfile
+    container_name: ars0n-toolkit
+    restart: unless-stopped
+    depends_on:
+      - server
+    networks:
+      - ars0n-network
+    volumes:
+      - ./toolkit:/app/toolkit
+      - ./logs:/app/logs
+      - ~/.keys:/root/.keys:ro  # Mount API keys as read-only
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/ars0n-framework
+
+networks:
+  ars0n-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local 

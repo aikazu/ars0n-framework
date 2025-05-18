@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Docker Compose setup for containerized deployment
+  - Docker Compose configuration for orchestrating all components
+  - Dockerfile for Node.js server
+  - Multi-stage build Dockerfile for React client
+  - Kali Linux-based Dockerfile for toolkit services
+  - Custom nginx configuration for client
+  - `docker-run.sh` script for easier container management
 - Improved process management in toolkit service
 - Authentication system for API access
 - Comprehensive documentation structure
@@ -17,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored toolkit service for better stability
 - Enhanced installation process with better error handling
 - Improved UI for scan progress visualization
+- Updated README.md with Docker installation instructions
 
 ### Fixed
 - Process orphaning issues in toolkit services

@@ -99,6 +99,52 @@ Once the installation is complete, you will be given the option to run the appli
 ./run.sh --arm
 ```
 
+## Docker Installation (Experimental)
+
+The Ars0n Framework can now be run in Docker containers, which simplifies installation and ensures consistency across different environments.
+
+### Requirements
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Quick Start with Docker
+
+To run the Ars0n Framework using Docker containers:
+
+#### Linux/MacOS
+```
+# Clone the repository
+git clone https://github.com/R-s0n/ars0n-framework.git
+cd ars0n-framework
+
+# Start the containers
+./docker-run.sh
+```
+
+#### Windows
+```
+# Clone the repository
+git clone https://github.com/R-s0n/ars0n-framework.git
+cd ars0n-framework
+
+# Start the containers using PowerShell
+.\docker-run.ps1
+```
+
+The application will be available at http://localhost:3000 once all containers are running.
+
+### Container Structure
+
+The Docker setup consists of four main containers:
+
+1. **MongoDB** - Database for storing scan results and configuration
+2. **Server** - Node.js backend API
+3. **Client** - React frontend application
+4. **Toolkit** - Python-based scanning tools running on Kali Linux
+
+All data is persisted through Docker volumes, including MongoDB data and scan logs.
+
 ## Core Modules
 
 The Ars0n Framework's Core Modules are used to determine the basic scanning logic.  Each script is designed to support a specific recon methodology based on what the user is trying to accomplish.  

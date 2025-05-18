@@ -1,0 +1,83 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## State Persistence Strategy
+
+- **Create session summary**: Before reaching 20 messages, generate a SESSION-SUMMARY.md with current state
+- **Utilize checkpoints**: Add explicit STATE.md snapshots before complex operations
+- **Track current file**: Always note the file being edited with line numbers
+- **Implement knowledge anchors**: Add unique identifiers to key sections of documentation
+- **Progressive disclosure**: Organize information hierarchically for easier re-discovery
+- **Create work boundaries**: Design tasks to have clear completion points within conversation limits
+
+## Documentation Retrieval Protocol
+
+- **Start with STATUS.md**: Begin each resumed session by generating a quick status file
+- **Reference past decisions**: Include "Last session decided..." section in each resumed conversation
+- **Track file modification order**: Note sequence of file modifications (instead of timestamps)
+- **Implementation progress tracking**: Use percentage completed for major components
+- **Memory priming**: Begin resumed sessions with key documentation review
+- **Context restoration**: Include explicit "Context Loading" step when resuming
+- - **Place**: Documentation is always in root workspace folder
+
+## Modular Task Approach
+
+- **Create subtask files**: Generate SUBTASK-{ID}.md for each major component
+- **Establish dependencies**: Explicitly link subtasks with "Depends on SUBTASK-{ID}" notations
+- **Progress tracking**: Include completion status in each subtask file
+- **Isolated state**: Ensure each subtask document contains enough context to be worked on independently
+- **Checkpoint system**: Include verification points between subtasks
+- **Task segmentation**: Design tasks to fit within conversation window constraints
+
+## Development Environment Details
+
+- **Operating System**: Windows
+- **Terminal**: PowerShell
+- **Linux Subsystem**: Windows Subsystem Linux with Ubuntu 24.04
+- **Containerization**: Docker Desktop for Windows
+- **IDE**: Visual Studio Code
+- **Python Environment**: Virtual Environment for Python projects
+- **Environment Usage**: Consistent for development and testing
+
+## Code Quality & Structure Guidelines
+
+- **Enforce modular design**: Limit files to max 300 lines of code; split by responsibility when approaching this limit
+- **Follow consistent patterns**: Match existing code style, naming conventions, and architecture patterns
+- **Manage code complexity**: Keep functions under 50 lines and limit nesting to 3 levels
+- **Optimize imports**: Organize imports by standard library → third-party → local modules with appropriate spacing
+- **Documentation standards**: Include docstrings and comments for complex logic
+- **Error handling**: Implement consistent error handling strategies
+- **Logging practices**: Use appropriate logging levels and meaningful messages
+
+## AI Assistant Behavior
+
+- **Prioritize understanding**: Ask clarifying questions before proceeding with ambiguous tasks
+- **Expose assumptions**: Explicitly state assumptions when making implementation decisions
+- **Verify dependencies**: Confirm all libraries exist and are compatible before suggesting them
+- **Maintain project history**: Reference past decisions and discussions when relevant
+- **Show alternatives**: Present multiple approaches for complex problems with pros/cons
+- **Admit limitations**: Be transparent when a task exceeds current capabilities or context
+- **Checkpoint awareness**: Proactively suggest creating checkpoint documents when approaching message limits
+- **Memory management**: Prioritize critical information when resuming interrupted work
+
+## Implementation Strategy
+
+- **Plan before coding**: Outline approach before writing implementation code
+- **Incremental development**: Build functionality in small, testable increments
+- **Explicit error handling**: Add comprehensive error cases with informative messages
+- **Conversation boundary awareness**: Design implementation steps to fit within conversation limits
+- **State persistence**: Document progress in a way that survives conversation breaks
+- **Task atomicity**: Break work into units completable within message constraints
+- **Assets**: Generate SVG for assets for placeholder or use Emoji
+
+## Continuous Improvement
+
+- **Review refactoring opportunities**: Suggest code improvements as patterns emerge
+- **Track technical debt**: Document shortcuts or temporary solutions in a dedicated section
+- **Learn from feedback**: Adapt assistance style based on user interactions and preferences
+- **Balance pragmatism and idealism**: Consider both quick solutions and long-term code health
+- **Documentation evolution**: Update documentation structure based on project needs
+
+- **Process refinement**: Adjust the documentation strategy based on effectiveness
