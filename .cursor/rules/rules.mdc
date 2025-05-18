@@ -20,7 +20,8 @@ alwaysApply: true
 - **Implementation progress tracking**: Use percentage completed for major components
 - **Memory priming**: Begin resumed sessions with key documentation review
 - **Context restoration**: Include explicit "Context Loading" step when resuming
-- - **Place**: Documentation is always in root workspace folder
+- **Place**: Documentation is always in root workspace folder
+- **Timestamp & Date**: Never use timestamp or date
 
 ## Modular Task Approach
 
@@ -79,5 +80,4 @@ alwaysApply: true
 - **Learn from feedback**: Adapt assistance style based on user interactions and preferences
 - **Balance pragmatism and idealism**: Consider both quick solutions and long-term code health
 - **Documentation evolution**: Update documentation structure based on project needs
-
 - **Process refinement**: Adjust the documentation strategy based on effectiveness
